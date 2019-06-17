@@ -1,0 +1,33 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{charset: "utf-8"}
+
+  %body
+    %div{:class => "side-bar"}
+      %div{:class => "side-bar__user"}
+        %p{:class => "side-bar__user__name"}
+          side-bar__user
+        %div{:class => "side-bar__user__icon"}
+          =link_to =fa_icon "edit", class: "side-bar__user__icon__edit"
+          =link_to =fa_icon "cog", class: "side-bar__user__icon__cog"
+      =render partial: "group"
+      =render partial: "group"
+
+    %div{:class => "chat"}
+      %p{:class => "chat__edit-buttom"}
+        Edit
+      %p{:class => "chat__group"}
+        chat__title
+      %p{:class => "chat__member"}
+        chat__member
+      =render partial: "message"
+      =render partial: "message"
+      %div{:class => "chat__send"}
+        %div{:class => "chat__send__input-box"}
+          %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "type a message"}
+          %label{:class => "chat__send__input-box__photo"}
+            =fa_icon "image", class: "chat__send__input-box__photo__icon"
+            %input{:type => "file", :class => "chat__send__input-box__photo__choose"}
+        %p{:class => "chat__send__send-buttom"}
+          Send
