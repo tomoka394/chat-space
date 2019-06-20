@@ -1,0 +1,27 @@
+.side-bar
+  .side-bar__user
+    %p.side-bar__user__name
+      side-bar__user
+    .side-bar__user__icon
+      =link_to =fa_icon "edit", class: "side-bar__user__icon__edit"
+      =link_to =fa_icon "cog", class: "side-bar__user__icon__cog"
+  =render partial: "group"
+  =render partial: "group"
+
+.chat
+  %p.chat__edit-buttom
+    Edit
+  %p.chat__group
+    chat__title
+  %p.chat__member
+    chat__member
+  =render partial: "message"
+  =render partial: "message"
+  .chat__send
+    .chat__send__input-box
+      %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "type a message"}
+      %label{:class => "chat__send__input-box__photo"}
+        =fa_icon "image", class: "chat__send__input-box__photo__icon"
+        %input{:type => "file", :class => "chat__send__input-box__photo__choose"}
+    %p.chat__send__send-buttom
+      Send
