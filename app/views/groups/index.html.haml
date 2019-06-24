@@ -7,22 +7,22 @@
         =fa_icon "edit", class: "side-bar__user__icon__edit"
       =link_to edit_user_path(current_user) do
         =fa_icon "cog", class: "side-bar__user__icon__cog"
-  =render partial: "group"
+  =render partial: "messages/group"
 
 .chat
-  %p.chat__edit-buttom
+  %a{:class => "chat__edit-button", href: "groups/1/edit"}
     Edit
   %p.chat__group
     chat__title
   %p.chat__member
     chat__member
-  =render partial: "message"
-  =render partial: "message"
+  =render partial: "messages/message"
+  =render partial: "messages/message"
   .chat__send
     .chat__send__input-box
       %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "type a message"}
       %label{:class => "chat__send__input-box__photo"}
         =fa_icon "image", class: "chat__send__input-box__photo__icon"
         %input{:type => "file", :class => "chat__send__input-box__photo__choose"}
-    %p.chat__send__send-buttom
+    %p.chat__send__send-button
       Send
