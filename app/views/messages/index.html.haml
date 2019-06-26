@@ -20,9 +20,9 @@
   =render partial: "messages/message"
   .chat__send
     .chat__send__input-box
-      %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "type a message"}
-        %label{:class => "chat__send__input-box__photo"}
-          =fa_icon "image", class: "chat__send__input-box__photo__icon"
-          %input{:type => "file", :class => "chat__send__input-box__photo__choose"}
-      %p.chat__send__input-box__send-button
-        Send
+      =form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'chat__send__input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'chat__send__input-box__photo' do
+          = fa_icon 'picture-o', class: 'chat__send__input-box__photo__icon'
+          = f.file_field :image, class: 'chat__send__input-box__photo__choose'
+        = f.submit 'Send', class: 'chat__send__input-box__send-button'
