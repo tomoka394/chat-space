@@ -98,48 +98,43 @@ body{
       }
     }
     &__send{
-      width: 100%;
+      width: calc(100vw - 300px);
       background-color: $color-gray;
       position: fixed;
       bottom: 0;
       display: flex;
-      padding-top: 20px;
-      padding-bottom: 20px;
       &__input-box{
-        background-color: $color-back-white;
-        margin-right: 15px;
         color: $color-gray2;
-        margin-left: 40px;
-        width: calc(100% - 500px);
-        position: relative;
+        width: 100%;
+        margin: 20px 40px;
         &__text{
-          width: 100%;
-          border: none;
+          background-color: $color-back-white;
+          width: calc(100% - 160px);
           height: 50px;
           line-height: 50px;
           padding-left: 10px;
           font-size: 16px;
         }
         &__photo{
-          position: absolute;
-          right: 0;
-          top: 0;
+          background-color: $color-back-white;
+          height: 50px;
           line-height: 50px;
+          position: relative;
+          right: 30px;
           &__choose{
             display: none;
           }
         }
-      } 
-      &__send-button{
-        background-color: $color-light-blue;
-        height: 50px;
-        width: 100px;
-        line-height: 50px;
-        margin-left: 15px;
-        margin-right:40px;
-        color: $color-font-white;
-        text-align: center;
-        float: right; 
+        &__send-button{
+          background-color: $color-light-blue;
+          height: 50px;
+          width: 100px;
+          line-height: 50px;
+          margin-left: 15px;
+          color: $color-font-white;
+          text-align: center;
+          float: right;
+        }
       }
     }
   }
