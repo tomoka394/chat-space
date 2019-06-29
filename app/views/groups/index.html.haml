@@ -16,8 +16,8 @@
     chat__title
   %p.chat__member
     chat__member
-  =render partial: "messages/message"
-  =render partial: "messages/message"
+  =render @messages
+  
   .chat__send
     .chat__send__input-box
       %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "type a message"}

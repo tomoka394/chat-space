@@ -13,11 +13,11 @@
   %a{:class => "chat__edit-button", href: "groups/1/edit"}
     Edit
   %p.chat__group
-    chat__title
+    =@group.name
   %p.chat__member
-    chat__member
-  =render partial: "messages/message"
-  =render partial: "messages/message"
+    group member
+  =render @messages
+
   .chat__send
     .chat__send__input-box
       =form_for [@group, @message] do |f|

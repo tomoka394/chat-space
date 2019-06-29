@@ -1,8 +1,11 @@
 .chat__message
   .chat__message__label
     %p.chat__message__label__member
-      member
+      = message.user.name
     %p.chat__message__label__time
-      time
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
   %p.chat__message__text
-    text
+    - if message.content.present?
+      %p.chat__message__text
+        = message.content
+    = image_tag message.image.url, class: "chat__message__image" if message.image.present?
