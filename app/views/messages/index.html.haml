@@ -20,7 +20,7 @@
 
   .chat__send
     .chat__send__input-box
-      =form_for [@group, @message] do |f|
+      =form_for [@group, @message], html: {id: "new_message"} do |f|
         = f.text_field :content, class: 'chat__send__input-box__text', placeholder: 'type a message'
         = f.label :image, class: 'chat__send__input-box__photo' do
           = fa_icon 'picture-o', class: 'chat__send__input-box__photo__icon'
