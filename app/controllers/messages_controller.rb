@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     @message.save
     respond_to do |format|
-      format.html { redirect_to action: index }
+      format.html { redirect_to action: 'index' }
       format.json
     end
   end
