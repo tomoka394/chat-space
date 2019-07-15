@@ -33,7 +33,11 @@ $(function(){
       var html = buildHTML(data);
       $('.chat__messages').append(html)
       $('.chat__send__input-box__text').val('')
+      $('html,body').animate({scrollTop: $('.chat__messages__bottom').offset().top},'slow');
+      $('.chat__send__input-box__send-button').attr('disabled', false);
     })
-    
+    .fail(function(){
+      alert('error');
+    })
   })
 })
