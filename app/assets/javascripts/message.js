@@ -35,8 +35,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.chat__messages').append(html)
-      $('.chat__send__input-box__text').val('')
-      $('.chat__send__input-box__photo__choose').val('')
+      $('#new_message')[0].reset();
       $('html,body').animate({scrollTop: $('.chat__messages__bottom').offset().top},'slow');
       $('.chat__send__input-box__send-button').attr('disabled', false);
     })
