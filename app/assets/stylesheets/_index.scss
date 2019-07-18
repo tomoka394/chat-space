@@ -2,6 +2,17 @@ body{
   height: 100vh;
   width: 100vw;
 
+  .notifications{
+    color: $color-font-white;
+    text-align: center;
+    .notice{
+      background-color: blue;
+    }
+    .alert{
+      background-color: orange;
+    }
+  }
+
   .side-bar{
     height: 100%;
     background-color: #2f3e51;

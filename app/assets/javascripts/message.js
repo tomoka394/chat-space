@@ -11,7 +11,10 @@ $(function(){
                   </div>  
                   <p class="chat__message__main">
                     <p class="chat__message__main__text">
-                      ${message.content}
+                        ${message.content}
+                    </p>
+                    <p class="chat__message__main__image">
+                      <img src = '${message.image_url}' width="800" height="800" if ${message.image_url}?>
                     </p>
                   </p>
                 </div>`
@@ -33,6 +36,7 @@ $(function(){
       var html = buildHTML(data);
       $('.chat__messages').append(html)
       $('.chat__send__input-box__text').val('')
+      $('.chat__send__input-box__photo__choose').val('')
       $('html,body').animate({scrollTop: $('.chat__messages__bottom').offset().top},'slow');
       $('.chat__send__input-box__send-button').attr('disabled', false);
     })
