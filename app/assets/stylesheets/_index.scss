@@ -2,6 +2,17 @@ body{
   height: 100vh;
   width: 100vw;
 
+  .notifications{
+    color: $color-font-white;
+    text-align: center;
+    .notice{
+      background-color: blue;
+    }
+    .alert{
+      background-color: orange;
+    }
+  }
+
   .side-bar{
     height: 100%;
     background-color: #2f3e51;
@@ -9,6 +20,7 @@ body{
     color: $color-font-white;
     font-weight: bold;
     width: 300px;
+    position: fixed;
     
     &__user{
       background-color: #253141;
@@ -44,7 +56,11 @@ body{
     height: 100%;
     width: calc(100vw - 300px);
     background-color: $color-back-white;
-    float: left;
+    float: right;
+    &__messages {
+      padding-bottom: 130px;
+    }
+
     &__edit-button{
       margin-right: 40px;
       float: right;
@@ -91,10 +107,12 @@ body{
           padding-left: 10px;
         }
       }
-      &__text{
-        padding-top: 10px;
-        font-size: 14px;
-        color: $color-gray2;
+      &__main{
+        &__text{
+          margin-top: 10px;
+          font-size: 14px;
+          color: $color-gray2;
+        }
       }
     }
     &__send{
@@ -102,6 +120,7 @@ body{
       background-color: $color-gray;
       position: fixed;
       bottom: 0;
+      right: 0;
       display: flex;
       &__input-box{
         color: $color-gray2;
