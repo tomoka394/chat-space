@@ -8,19 +8,3 @@
       =link_to edit_user_path(current_user) do
         =fa_icon "cog", class: "side-bar__user__icon__cog"
   =render partial: "messages/group"
-
-.chat
-  %a{:class => "chat__edit-button", href: "groups/1/edit"}
-    Edit
-  %p.chat__group
-    グループを選んでね
-  %p.chat__member
-    メンバーはいません
-  
-  .chat__send
-    .chat__send__input-box
-      %input{:type => "text", :class => "chat__send__input-box__text", :placeholder => "グループを選んでね"}
-        %label{:class => "chat__send__input-box__photo"}
-          =fa_icon "image", class: "chat__send__input-box__photo__icon"
-      %p.chat__send__input-box__send-button
-        Waiting

@@ -33,12 +33,11 @@
       - if @users.present?
         %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id}
         - @users.each do |user|
-          = current_user.name
           %li= user.name
-        .user-search-remove 
-        .chat-group-user__btn
-          .chat-group-user__btn.chat-group-user__btn--remove
-          削除
+          .user-search-remove 
+          .chat-group-user__btn
+            .chat-group-user__btn.chat-group-user__btn--remove
+            削除
       - if @users.present? == false
         %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id}
         = current_user.name
