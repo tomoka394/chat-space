@@ -72,26 +72,6 @@ $(function() {
     var user_name = $(this).attr("data-user-name");
     $(this).parent().remove();
     appendDeleteUser(user_id,user_name);
-    // $.ajax({
-    //   type: 'GET',
-    //   url: '/users',
-    //   data: { keyword: input },
-    //   dataType: 'json'
-    // })
-    // .done(function(users) {
-    //   $("#user-search-field").empty();
-    //   if (users.length !== 0) {
-    //     users.forEach(function(user){
-    //       appendAddUser(user_id);
-    //     });
-    //   }
-    //   else {
-    //     appendErrMsgToHTML("一致するメンバーはいません");
-    //   }
-    // })
-    // .fail(function() {
-    //   alert('メンバー追加に失敗しました');
-    // })
   });
 
   //グループ情報を保存
