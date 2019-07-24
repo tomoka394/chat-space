@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, :set_user, only: [:edit, :update]
+  protect_from_forgery except: :update
 
   def index
   end
