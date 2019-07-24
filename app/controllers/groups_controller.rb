@@ -12,9 +12,13 @@ class GroupsController < ApplicationController
   def create
     @group =Group.new(group_params)
     if @group.save
+      puts "以下デバッグ"
+      puts @group.name
+      puts @group.user_ids
+
       redirect_to root_path, notice: "グループを作成しました"
     else
-      render :new
+      render :new, notice: "グループの作成に失敗しました"
     end
   end
 

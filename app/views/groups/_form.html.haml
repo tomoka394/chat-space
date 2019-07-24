@@ -5,6 +5,15 @@
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
+
+  %input{name: "utf8", type: "hidden", value: "✓"}/
+  %input{name: "authenticity_token", type: "hidden", value: "AxFKlYEhD6eqX1PiZoTYQDANtKvgcFSXZQXHt5hyTl55/U/CHC5rtPavrcu2za65riz4tekZEy56vP6kEb2wYA=="}/
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label.chat-group-form__label{for: "chat_group_name"} グループ名
+    .chat-group-form__field--right
+      = f.text_field :name, id: 'chat_group_name.chat-group-form__input', placeholder: 'グループ名を入力してください'
+        
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバーを追加"}
@@ -13,29 +22,35 @@
       %input{class: 'chat-group-form__input', id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', type: 'text'}
       .chat-group-form__field--right__not-member
 
-    / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"}
         チャットメンバー
     .chat-group-form__field--right
-      / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-      /= f.collection_check_boxes :user_ids, User.all, :id, :name
-      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-      #chat-group-users
-        .chat-group-user.clearfix{id: "chat-group-user-22"}
-        %input{name: 'chat_group[user_ids][]', type: "hidden", value: "22"}
-          .chat-group-user__name.clearfix
-            - @users.each do |user|
-              %li= user.name
-              .user-search-remove 
-              .chat-group-user__btn
-                .chat-group-user__btn.chat-group-user__btn--remove
-                  削除
-      .chat-group-form__field--right__member
+
+  .chat-group-user.clearfix{id: "chat-group-user-${current_user.id}"}
+    .chat-group-user__name.clearfix
+      - if @users.present?
+        %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id}
+        - @users.each do |user|
+          = current_user.name
+          %li= user.name
+        .user-search-remove 
+        .chat-group-user__btn
+          .chat-group-user__btn.chat-group-user__btn--remove
+          削除
+      - if @users.present? == false
+        %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id}
+        = current_user.name
+        .user-search-remove
+        .chat-group-user__btn
+          .chat-group-user__btn.chat-group-user__btn--remove
+          削除
+
+    .chat-group-form__field--right__member
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right
-      = f.submit class: 'chat-group-form__action-btn', value: "Save"
-      #result
+      -# %input.chat-group-form__action-btn{"data-disable-with":"Save", name: "commit", type: "submit", value: "Save", id: "group_update"}/
+      = f.submit 'Send', class: 'chat-group-form__action-btn', "data-disable-with":"Save", name: "commit",id: "group_update"
