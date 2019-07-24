@@ -31,20 +31,18 @@
         チャットメンバー
     .chat-group-form__field--right
       .chat-group-users.js-add-user
-        .chat-group-user.clearfix.js-chat-member{id: 'chat-group-user-@user_id'}
-          %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id}
+        .chat-group-user.clearfix.js-chat-member{id: @user_id}
+          %input{name: 'group[user_ids][]', type: "hidden", value: current_user.id, id: "group_user_ids"}
           .chat-group-user__name          
             = current_user.name
-
-
-        .chat-group-user.clearfix.js-chat-member{id: 'chat-group-user-@user_id'}
-          - if @users.present?
-            - @users.where.not(id: current_user.id).each do |user|
-              .chat-group-user__name          
-                %input{name: 'group[user_ids][]', type: "hidden", value: user.id}
-                %li= user.name
-                .chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn{data: {user: {id: user.id}}, data: {user: {name: user.name}}}
-                  削除
+      - if @users.present?
+        - @users.where.not(id: current_user.id).each do |user|
+          .chat-group-user.clearfix.js-chat-member{id: @user_id}
+            %input{name: 'group[user_ids][]', type: "hidden", value: user.id, id: "group_user_ids"}
+            .chat-group-user__name          
+              %li= user.name
+            .chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn{data: {user: {id: user.id}}, data: {user: {name: user.name}}}
+              削除
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
