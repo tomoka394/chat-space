@@ -10,7 +10,7 @@
     =render partial: "messages/group"
 
 .chat
-  %a{:class => "chat__edit-button", href: "edit"}
+  =link_to "edit", class: "chat__edit-button" do
     Edit
   %p.chat__group
     =@group.name
