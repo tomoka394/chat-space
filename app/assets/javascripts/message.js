@@ -14,7 +14,9 @@ $(function(){
                         ${message.content}
                     </p>
                     <p class="chat__message__main__image">
-                      <img src = '${message.image_url}' width="800" height="800" if ${message.image_url}?>
+                      if ${message.image_url}.present
+                        <img src = '${message.image_url}' width="800" height="800" if ${message.image_url}.present?>
+                      end
                     </p>
                   </p>
                 </div>`

@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, :set_user, only: [:edit, :update]
+  protect_from_forgery except: :update
 
   def index
   end
@@ -14,7 +15,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to root_path, notice: "グループを作成しました"
     else
-      render :new
+      render :new, notice: "グループの作成に失敗しました"
     end
   end
 
@@ -37,4 +38,9 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
+
+  def set_user
+    @users = Group.find(params[:id]).users
+  end
+
 end
